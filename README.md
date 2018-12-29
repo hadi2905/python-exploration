@@ -1,4 +1,4 @@
 # python-exploration
 Python Coding
 
-I'll try to combine investigation of python and usage of git
+Serves for the investigation of some python concepts and usage of git
