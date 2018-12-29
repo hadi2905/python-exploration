@@ -1,6 +1,7 @@
 import datetime as dt
 import math
 import random
+import logging
 
 def mydeco(fnc):
     def wrapper(*args, **kwargs):   # Der Wrapper ist für beide Parameterarten bereit

@@ -1,5 +1,6 @@
-import logging
+import logger
 import mit_uhrzeiten_rechnen as mur
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
