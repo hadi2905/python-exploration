@@ -1,22 +1,25 @@
-import logger
+import logging
 import mit_uhrzeiten_rechnen as mur
 
-
-logger = logging.getLogger(__name__)
+print('>> Logger initialisieren')
+logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
 fH = logging.FileHandler("test_logger.log")
-fH.setLevel(logging.DEBUG)
+fH.setLevel(logging.INFO)
 
 cH = logging.StreamHandler()
-cH.setLevel(logging.INFO)
+cH.setLevel(logging.DEBUG)
 
+print('>> Logger Formatierung')
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 fH.setFormatter(formatter)
 cH.setFormatter(formatter)
 
+print('>> Logger AddHandler')
 logger.addHandler(fH)
 logger.addHandler(cH)
 
+logger.debug("nur im Debugging Modus")
 logger.info("erster Aufruf")
 mur.do_something()
