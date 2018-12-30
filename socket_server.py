@@ -1,5 +1,7 @@
 import socket
-
+"""
+Implementiert einen einfachen Socket-Server
+"""
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 serversocket.bind(('192.168.0.10', 54000))
