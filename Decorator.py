@@ -2,7 +2,9 @@ import datetime as dt
 import math
 import random
 import logging
-
+"""
+Versuche mit dem decorator
+"""
 def mydeco(fnc):
     def wrapper(*args, **kwargs):   # Der Wrapper ist für beide Parameterarten bereit
         print("Wrapper für " + fnc.__name__)
