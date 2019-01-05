@@ -12,7 +12,7 @@ def import_raspberry_mysql_data():
         for e in data:
             print(e)
 
-def import_journalctl_data(journal_file):
+def import_journalctl_data(journal_file, example=0):
     """
     Verarbeitet eine JSON-Datei des journalctl
     Export des Journals vorher mit: journalctl -b -1 --system -o json > boot-1.json
@@ -21,13 +21,23 @@ def import_journalctl_data(journal_file):
     Vielmehr muss jede Zeile einzeln gelesen und mit json.json_loads interpretiert werden
     """
     with open(journal_file) as the_file:
-        for line in the_file:
-            obj = json.loads(line)
-            print(obj)
-            for k, el in obj.items():
-                print('{}:\t{}'.format(k, el))
-            break
+        if example==0:
+            for line in the_file:
+                obj = json.loads(line)
+                for k, el in obj.items():
+                    print('{}:\t{}'.format(k, el))
+                break
+        elif example==1:
+            obj_list = []
+            for line in the_file:
+                obj_list.append(json.loads(line))
+            print(len(obj_list))
+            i = 0
+            while i < len(obj_list):
+                print("{}\t\t{}".format(i, obj_list[i]['__MONOTONIC_TIMESTAMP']))
+                i += 50
 
 if __name__=='__main__':
-    import_journalctl_data('/home/dieter/boot-1.json')
-    #import_journalctl_data('/home/dieter/journal_haenger3.json')
+    #import_journalctl_data('/home/dieter/boot-1.json')
+    #import_journalctl_data('/home/dieter/boot-1.json', 1)
+    import_journalctl_data('/home/dieter/journal_haenger.json', 1)
