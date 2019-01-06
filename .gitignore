@@ -4,3 +4,5 @@ __pycache__/*
 *.csv
 *.pyc
 test_logger.log
+*.pyc
+*.csv

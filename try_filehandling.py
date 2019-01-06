@@ -1,3 +1,8 @@
+# -*- coding: UTF-8 -*-
+"""
+Eine Textdatei zeilenweise einlesen
+"""
+
 try:
     with open('log_trial.py','r') as my_file:
         for line in my_file:

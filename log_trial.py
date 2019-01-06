@@ -24,3 +24,4 @@ logger.addHandler(cH)
 logger.debug("nur im Debugging Modus")
 logger.info("erster Aufruf")
 mur.do_something()
+
