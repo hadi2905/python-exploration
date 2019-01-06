@@ -1,5 +1,8 @@
 .idea/*
 __pycache__/*
+*.json
+*.csv
+*.pyc
 test_logger.log
 *.pyc
 *.csv

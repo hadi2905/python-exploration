@@ -106,6 +106,7 @@ def import_journalctl_data(journal_file, example=0, arg1=None):
             for k in journal_keys:
                 f.write(k+';')
             f.write('\n')
+            n = 0
             for el in journal:
                 line = []
                 for k in journal_keys:
@@ -121,8 +122,13 @@ def import_journalctl_data(journal_file, example=0, arg1=None):
                     else:
                         line.append('')
                 for item in line:
-                    f.write('"'+item+'";')
+                    try:
+                        f.write('"'+item+'";')
+                    except:
+                        f.write('"ERR";')
+                        print('Fehler in Eintrag {} TS {} MonoTS {} Msg {} Type {}'.format(n, line[0], line[1], line[8], type(item)))
                 f.write('\n')
+                n += 1
             f.close()
 
 
@@ -130,5 +136,6 @@ if __name__=='__main__':
     #import_journalctl_data('/home/dieter/boot-1.json')
     #import_journalctl_data('/home/dieter/boot-2.json', 0, 1370)
     #import_journalctl_data('/home/dieter/boot-2.json', 2)
-    import_journalctl_data('/home/dieter/boot-2.json', 3)
+    #import_journalctl_data('/home/dieter/boot-2.json', 3)
+    import_journalctl_data('journal_1905_verlangsamt.json', 3)
     #import_journalctl_data('/home/dieter/journal_haenger.json', 1)
