@@ -125,8 +125,7 @@ def import_journalctl_data(journal_file, example=0, arg1=None):
                     try:
                         f.write('"'+item+'";')
                     except:
-                        f.write('"ERR";')
-                        print('Fehler in Eintrag {} TS {} MonoTS {} Msg {} Type {}'.format(n, line[0], line[1], line[8], type(item)))
+                        f.write('"Fehler in Eintrag {} TS {} MonoTS {} Msg {} Type {}"'.iormat(n, line[0], line[1], line[8], type(item)))
                 f.write('\n')
                 n += 1
             f.close()
