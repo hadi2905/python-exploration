@@ -1,4 +1,4 @@
 # python-exploration
 Python Coding
 
-Serves for the investigation of some python concepts and usage of git
+Used to study some python concepts and the use of git.
